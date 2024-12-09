@@ -59,33 +59,6 @@
             visibility: hidden;
         }
 
-        #backToFirstViewBtn {
-            padding: 12px 24px;
-            font-size: 16px;
-            background-color: #ac28287a;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        #backToFirstViewBtn:hover {
-            background-color: #ff0000;
-            transform: scale(1.1);
-        } 
-        .custom-card {
-            width: 300px; /* Set fixed width */
-            height: 650px; /* Set fixed height */
-        }
-
-        /* Optional: Add responsive handling for smaller screens */
-        @media (max-width: 768px) {
-            .custom-card {
-                width: 250px; /* Adjust size for smaller screens */
-                height: 350px;
-            }
-        }
     </style>
 </head>
 <body class="p-3 flex flex-col bg-slate-50 min-h-screen justify-center items-center"></body>
@@ -215,7 +188,7 @@
                             class="w-full h-full border-none"
                             frameborder="0">
                         </iframe>
-                        <button id="backToFirstViewBtn" class="absolute top-4 right-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
+                        <button id="backToFirstViewBtn" class="absolute top-4 left-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
                             Back
                         </button>
                     </div>
