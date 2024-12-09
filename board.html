@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Hover Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Tailwind extensions for 3D transform */
+    .perspective-500 {
+      perspective: 500px;
+    }
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+    .hover-transform {
+      will-change: transform;
+      transition: transform 0.5s;
+    }
+    .hover-transform:hover {
+      transform: translateZ(5px) rotateX(20deg) rotateY(20deg);
+    }
+    .hover-title-transform {
+      transition: transform 0.5s;
+    }
+    .hover-transform:hover .hover-title-transform {
+      transform: translateZ(50px);
+    }
+  </style>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen">
+
+  <div class="perspective-500">
+    <div class="w-48 h-64 bg-gray-800 border-2 border-gray-500 rounded-md relative preserve-3d hover-transform">
+      <figcaption class="hover-title-transform text-white font-mono font-bold text-xl absolute top-1/2 right-5 transform -translate-y-1/2 text-shadow">
+
+      </figcaption>
+    </div>
+  </div>
+
+</body>
+</html>

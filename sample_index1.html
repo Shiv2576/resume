@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-u3h5SFn5baVOWbh8UkOrAaLXttgSF0vXI15ODtCSxl0v/VKivnCN6iHCcvlyTL7L" crossorigin="anonymous">
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav a i {
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+        .linkedin:hover i {
+            transform: scale(1.6);
+            color: #ffffff;
+        }
+        .github:hover i {
+            transform: scale(1.6);
+            color: #ffffff;
+        }
+        .telegram:hover i {
+            transform: scale(1.6);
+            color: #ffffff;
+        }
+        .leetcode:hover i {
+            transform: scale(1.6);
+            color: #ffffff;
+        }
+        #nav_menu a {
+            text-decoration: none;
+        }
+        .custom-shadow {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2),
+                        0 10px 15px rgba(0, 0, 0, 0.12);
+        }
+        #resumeview {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(-20px);
+            visibility: hidden;
+            animation: none;
+        }
+        #resumeview.opacity-100 {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        #resumeview.opacity-0 {
+            opacity: 0;
+            transform: translateY(-20px);
+            visibility: hidden;
+        }
+
+        #backToFirstViewBtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #ac28287a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #backToFirstViewBtn:hover {
+            background-color: #ff0000;
+            transform: scale(1.1);
+        } 
+        .custom-card {
+            width: 300px; /* Set fixed width */
+            height: 650px; /* Set fixed height */
+        }
+
+        /* Optional: Add responsive handling for smaller screens */
+        @media (max-width: 768px) {
+            .custom-card {
+                width: 250px; /* Adjust size for smaller screens */
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="p-3 flex flex-col bg-slate-50 min-h-screen justify-center items-center"></body>
+    <iframe
+        src="index_bg.html"
+        class="fixed inset-0 w-full h-full -z-10 object-cover"
+        frameborder="0"
+    ></iframe>
+    
+    <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-8 p-4">
+        <nav class="md:hidden w-full">
+            <div id="nav_menu" class="flex justify-center gap-8 w-full">
+                <a href="#" class="linkedin" onclick="window.location.href='https://www.linkedin.com/in/shivang-dixit-4471b2326/'">
+                    <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+                <a href="#" class="github" onclick="window.location.href='https://github.com/Shiv2576'">
+                    <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+                <a href="#" class="telegram" onclick="window.location.href='https://t.me'">
+                    <i class="fa-brands fa-telegram fa-xl"></i>
+                </a>
+                <a href="#" class="leetcode" onclick="window.location.href='https://leetcode.com/u/dixitshiva12358/'">
+                    <i class="fa-solid fa-code fa-xl"></i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="custom-card bg-white custom-shadow rounded-2xl p-6 flex flex-col items-center w-[500px] h-[400px] md:w-[250px] md:h-[650px]">
+            <div class="circle-frame mb-4">
+                <img
+                    src="profile.jpeg" 
+                    class="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover border-4 border-white shadow-lg"
+                />
+            </div>
+
+            <div class="text-center mb-6">
+                <p class="text-2xl font-extrabold text-black">Shivang Dixit</p>
+                <p class="text-sm font-serif text-black">Rust Developer(Web3)</p>
+                <p class="text-xs font-serif text-black">Undergrad</p>
+                <p class="text-xs font-serif text-black">
+                    <i class="fa-solid fa-location-dot fa-lg" style="color: #ff0000;"></i> India
+                </p>
+                <p class="mt-2 text-xs font-serif text-gray-700">Empowering a safer internet,</p>
+                <p class="text-xs font-serif text-gray-700">one secure line of Rust at a time.</p>
+            </div>
+
+            <nav class="hidden md:flex flex-col gap-4 w-full">
+                <button onclick="window.location.href='https://www.linkedin.com/in/shivang-dixit-4471b2326/'" class="linkedin flex items-center justify-center gap-2 bg-blue-400 text-white py-2 rounded-full">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </button>
+                <button onclick="window.location.href='https://github.com/Shiv2576'" class="github flex items-center justify-center gap-2 bg-gray-800 text-white py-2 rounded-full">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </button>
+                <button onclick="window.location.href='https://telegram.org/'" class="telegram flex items-center justify-center gap-2 bg-blue-400 text-white py-2 rounded-full">
+                    <i class="fa-brands fa-telegram"></i> Telegram
+                </button>
+                <button onclick="window.location.href='https://leetcode.com/u/dixitshiva12358/'" class="leetcode flex items-center justify-center gap-2 bg-yellow-300 text-black py-2 rounded-full">
+                    <i class="fa-solid fa-code fa-l"></i> Leetcode
+                </button>                                      
+            </nav>
+        </div>
+
+        <div class="w-full md:w-2/3 lg:w-3/4 bg-white custom-shadow rounded-2xl p-6 space-y-6">
+            <div id="Languages_sub">
+                <p class="text-xl font-sans text-black text-center mb-4">Languages</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Rust</span>
+                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Python</span>
+                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Solidity</span>
+                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">GO</span>
+                </div>
+            </div>
+
+            <div id="Frameworks_sub">
+                <p class="text-xl font-sans text-black text-center mb-4">Frameworks</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Leptos</span>
+                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Ink!</span>
+                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Rocket</span>
+                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Pytorch</span>
+                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Tokio</span>
+                </div>
+            </div>
+
+            <div id="Databases_sub">
+                <p class="text-xl font-sans text-black text-center mb-4">Databases</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">Postgres</span>
+                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">SQL</span>
+                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">MongoDB</span>
+                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">ChromaDB</span>
+                </div>
+            </div>
+
+            <div id="Tools_sub">
+                <p class="text-xl font-sans text-black text-center mb-4">Tools</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Postman</span>
+                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Docker</span>
+                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Git</span>
+                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">AWS</span>
+                </div>
+            </div>
+            <div class="flex flex-row justify-center items-center space-x-4 w-full">
+                <button id="resumebutton"
+                    type="submit"
+                    class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-rose-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+                    >
+                    Resume
+                    <svg
+                        class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                        viewBox="0 0 16 19"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                            class="fill-gray-800 group-hover:fill-gray-800"
+                        ></path>
+                    </svg>
+                </button>
+
+
+                <div id="resumeview" class="hidden">
+                    <iframe 
+                        src="Resume_01.pdf" 
+                        class="w-full h-[500px] md: border rounded-lg shadow-md" 
+                        frameborder="0">
+                    </iframe>   
+                    <button id="backToFirstViewBtn" class="mt-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity ">
+                        Back
+                    </button>
+                </div>
+
+
+                <button id="projectButton" 
+                        type="submit"
+                        class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold   isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-15 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+                    Projects
+                    <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zm0 12L2 9l10 5 10-5v7l-10 5-10-5v-7z" class="fill-gray-800 group-hover:fill-gray-800"/>
+                    </svg>
+                </button>
+
+
+
+
+
+
+
+
+                <div id="projectview" class="hidden">
+                    <button id="return_button" class="mt-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
+                        Back
+                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                        <!-- Project 1 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="Portfolio Website" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">Portfolio Website</h3>
+                            <p class="text-gray-600 mt-2">A personal portfolio website showcasing projects and skills.</p>
+                        </div>
+                
+                        <!-- Project 2 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="E-commerce Platform" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">E-commerce Platform</h3>
+                            <p class="text-gray-600 mt-2">A web app for buying and selling products online.</p>
+                        </div>
+                
+                        <!-- Project 3 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
+                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
+                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
+                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
+                        </div>
+
+                        <!-- Project 6 -->
+                        <div class="p-4 bg-white shadow rounded">
+                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
+                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
+                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <button id="ExperienceButton" 
+                        type="submit"
+                        class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+                    Experience
+                    <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3h7v7H3V3zM14 3h7v7h-7V3zM3 14h7v7H3v-7zM14 14h7v7h-7v-7z" class="fill-gray-800 group-hover:fill-gray-800"/>
+                    </svg>
+                </button>
+
+
+
+
+
+
+                <div id="experienceview" class="hidden">
+                    <button id="returntoexperience" class="mt-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
+                        Back
+                    </button>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+    <script>
+        const resumebutton = document.getElementById('resumebutton');
+        const resumeview = document.getElementById('resumeview');
+        const Languages_sub = document.getElementById('Languages_sub');
+        const Frameworks_sub = document.getElementById('Frameworks_sub');
+        const Databases_sub = document.getElementById('Databases_sub');
+        const Tools_sub = document.getElementById('Tools_sub');
+        const projectButton = document.getElementById('projectButton');
+        const ExperienceButton = document.getElementById('ExperienceButton');
+        const backToFirstViewBtn = document.getElementById('backToFirstViewBtn');
+        const projectview = document.getElementById('projectview');
+        const return_button = document.getElementById('return_button');
+        const experienceview = document.getElementById('experienceview');
+        const returntoexperience = document.getElementById('returntoexperience');
+
+        
+
+        function showResumeView() {
+            resumebutton.classList.add('hidden');
+
+            resumeview.classList.remove('hidden');
+            resumeview.classList.add('opacity-100');
+            resumeview.classList.remove('opacity-0', '-translate-y-4');
+
+            Languages_sub.classList.add('hidden');
+            Frameworks_sub.classList.add('hidden');
+            Databases_sub.classList.add('hidden');
+            Tools_sub.classList.add('hidden');
+            projectButton.classList.add('hidden');
+            ExperienceButton.classList.add('hidden');
+        }
+
+        function showOriginalView() {
+            resumeview.classList.add('opacity-0', '-translate-y-4');
+            resumeview.classList.remove('opacity-100');
+
+            setTimeout(() => {
+                resumeview.classList.add('hidden');
+                resumebutton.classList.remove('hidden');
+                Languages_sub.classList.remove('hidden');
+                Frameworks_sub.classList.remove('hidden');
+                Databases_sub.classList.remove('hidden');
+                Tools_sub.classList.remove('hidden');
+                projectButton.classList.remove('hidden');
+                ExperienceButton.classList.remove('hidden');
+            }, 100); 
+        }
+
+        resumebutton.addEventListener('click', showResumeView);
+        backToFirstViewBtn.addEventListener('click', showOriginalView);
+
+        function showProjecView() {
+            resumebutton.classList.add('hidden');
+            Languages_sub.classList.add('hidden');
+            Frameworks_sub.classList.add('hidden');
+            Databases_sub.classList.add('hidden');
+            Tools_sub.classList.add('hidden');
+            projectButton.classList.add('hidden');
+            ExperienceButton.classList.add('hidden');
+            projectview.classList.remove('hidden');
+        }
+
+        function showProjectbutton() {
+            resumebutton.classList.remove('hidden');
+            Languages_sub.classList.remove('hidden');
+            Frameworks_sub.classList.remove('hidden');
+            Databases_sub.classList.remove('hidden');
+            Tools_sub.classList.remove('hidden');
+            projectButton.classList.remove('hidden');
+            ExperienceButton.classList.remove('hidden');
+            projectview.classList.add('hidden');
+        }
+
+        projectButton.addEventListener('click', showProjecView)
+        return_button.addEventListener('click', showProjectbutton)
+
+
+        function showexperienceview() {
+            resumebutton.classList.add('hidden');
+            Languages_sub.classList.add('hidden');
+            Frameworks_sub.classList.add('hidden');
+            Databases_sub.classList.add('hidden');
+            Tools_sub.classList.add('hidden');
+            projectButton.classList.add('hidden');
+            ExperienceButton.classList.add('hidden');
+            experienceview.classList.remove('hidden');
+            
+        }
+
+
+        function showExperiencebutton() {
+            resumebutton.classList.remove('hidden');
+            Languages_sub.classList.remove('hidden');
+            Frameworks_sub.classList.remove('hidden');
+            Databases_sub.classList.remove('hidden');
+            Tools_sub.classList.remove('hidden');
+            projectButton.classList.remove('hidden');
+            ExperienceButton.classList.remove('hidden');
+            experienceview.classList.add('hidden');
+        }
+
+        ExperienceButton.addEventListener('click', showexperienceview);
+        returntoexperience.addEventListener('click', showExperiencebutton);
+        
+
+    </script>
+</body>
+</html>

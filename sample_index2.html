@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom transition styles */
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto max-w-md p-4">
+        <div id="originalView" class="bg-white shadow-lg rounded-lg p-8 text-center">
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">My Profile</h1>
+            <p class="text-lg text-gray-700 mb-6">My name is Shivang Dixit</p>
+            
+            <button id="resumeButton" 
+                type="submit" 
+                class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-rose-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full ml-24 group"
+            >
+                Resume
+                <svg 
+                    class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                    viewBox="0 0 16 19"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path 
+                        d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                        class="fill-gray-800 group-hover:fill-gray-800"
+                    ></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="resumeView" 
+             class="hidden bg-white shadow-lg rounded-lg p-8 text-center transition-all duration-300 ease-in-out opacity-0 transform -translate-y-4"
+        >
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">About Me</h1>
+            <p class="text-lg text-gray-700 mb-6">I am studying in Class 12th</p>
+            <button id="backToFirstViewBtn" 
+                    class="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+            >
+                Back to First View
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const originalView = document.getElementById('originalView');
+        const resumeView = document.getElementById('resumeView');
+        const resumeButton = document.getElementById('resumeButton');
+        const backToFirstViewBtn = document.getElementById('backToFirstViewBtn');
+
+        // Function to show resume view
+        function showResumeView() {
+            originalView.classList.add('hidden');
+            resumeView.classList.remove('hidden');
+            
+            // Trigger reflow to enable transition
+            void resumeView.offsetWidth;
+            
+            // Add transition classes
+            resumeView.classList.remove('opacity-0', '-translate-y-4');
+            resumeView.classList.add('opacity-100', 'translate-y-0');
+        }
+
+        // Function to show original view
+        function showOriginalView() {
+            resumeView.classList.add('opacity-0', '-translate-y-4');
+            resumeView.classList.remove('opacity-100', 'translate-y-0');
+            
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                resumeView.classList.add('hidden');
+                originalView.classList.remove('hidden');
+            }, 300);
+        }
+
+        // Event Listeners
+        resumeButton.addEventListener('click', showResumeView);
+        backToFirstViewBtn.addEventListener('click', showOriginalView);
+    </script>
+</body>
+</html>
