@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="flex flex-row justify-center items-center space-x-4 w-full">
-<!--                 <button id="resumebutton"
+<!--            <button id="resumebutton"
                     type="submit"
                     class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-rose-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
                     >
@@ -298,8 +298,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
     <script>
-        const resumebutton = document.getElementById('resumebutton');
-        const resumeview = document.getElementById('resumeview');
+
         const Languages_sub = document.getElementById('Languages_sub');
         const Frameworks_sub = document.getElementById('Frameworks_sub');
         const Databases_sub = document.getElementById('Databases_sub');
@@ -314,42 +313,9 @@
 
         
 
-        function showResumeView() {
-            resumebutton.classList.add('hidden');
 
-            resumeview.classList.remove('hidden');
-            resumeview.classList.add('opacity-100');
-            resumeview.classList.remove('opacity-0', '-translate-y-4');
-
-            Languages_sub.classList.add('hidden');
-            Frameworks_sub.classList.add('hidden');
-            Databases_sub.classList.add('hidden');
-            Tools_sub.classList.add('hidden');
-            projectButton.classList.add('hidden');
-            ExperienceButton.classList.add('hidden');
-        }
-
-        function showOriginalView() {
-            resumeview.classList.add('opacity-0', '-translate-y-4');
-            resumeview.classList.remove('opacity-100');
-
-            setTimeout(() => {
-                resumeview.classList.add('hidden');
-                resumebutton.classList.remove('hidden');
-                Languages_sub.classList.remove('hidden');
-                Frameworks_sub.classList.remove('hidden');
-                Databases_sub.classList.remove('hidden');
-                Tools_sub.classList.remove('hidden');
-                projectButton.classList.remove('hidden');
-                ExperienceButton.classList.remove('hidden');
-            }, 100); 
-        }
-
-        resumebutton.addEventListener('click', showResumeView);
-        backToFirstViewBtn.addEventListener('click', showOriginalView);
 
         function showProjecView() {
-            resumebutton.classList.add('hidden');
             Languages_sub.classList.add('hidden');
             Frameworks_sub.classList.add('hidden');
             Databases_sub.classList.add('hidden');
@@ -360,7 +326,6 @@
         }
 
         function showProjectbutton() {
-            resumebutton.classList.remove('hidden');
             Languages_sub.classList.remove('hidden');
             Frameworks_sub.classList.remove('hidden');
             Databases_sub.classList.remove('hidden');
@@ -375,7 +340,6 @@
 
 
         function showexperienceview() {
-            resumebutton.classList.add('hidden');
             Languages_sub.classList.add('hidden');
             Frameworks_sub.classList.add('hidden');
             Databases_sub.classList.add('hidden');
@@ -388,7 +352,6 @@
 
 
         function showExperiencebutton() {
-            resumebutton.classList.remove('hidden');
             Languages_sub.classList.remove('hidden');
             Frameworks_sub.classList.remove('hidden');
             Databases_sub.classList.remove('hidden');
