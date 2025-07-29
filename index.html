@@ -1,370 +1,396 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-u3h5SFn5baVOWbh8UkOrAaLXttgSF0vXI15ODtCSxl0v/VKivnCN6iHCcvlyTL7L" crossorigin="anonymous">
-    <title>Portfolio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Shivang Dixit </title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            transition: background-color 0.0s, color 0.5s;
         }
-        nav a i {
-            transition: transform 0.4s ease, color 0.4s ease;
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            color: #2f2222;
+            line-height: 1.6;
+            background-color: #cacaca;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
         }
-        .linkedin:hover i {
-            transform: scale(1.6);
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1E1E1E;
             color: #ffffff;
         }
-        .github:hover i {
-            transform: scale(1.6);
-            color: #ffffff;
+        
+        body.dark-mode .sidebar {
+            background-color: #1E1E1E;
         }
-        .telegram:hover i {
-            transform: scale(1.6);
-            color: #ffffff;
+        
+        body.dark-mode .content {
+            background-color: #1E1E1E;
         }
-        .leetcode:hover i {
-            transform: scale(1.6);
-            color: #ffffff;
+        
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode h3 {
+            color: #e0e0e0;
         }
-        #nav_menu a {
+        
+        body.dark-mode a {
+            color: #4CA6FF;
+        }
+        
+        body.dark-mode .social-icon {
+            fill: #e0e0e0;
+        }
+        
+        body.dark-mode .social-icon:hover {
+            fill: #4CA6FF;
+        }
+        
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 24px;
+        }
+        
+        /* Existing styles remain the same */
+        .sidebar {
+            margin-left: -20%;
+            width: 40%;
+            max-width: 400px;
+            background-color: #cacaca;
+            padding: 90px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            left: 50%;
+            transform: translateX(-100%);
+        }
+        
+        .sidebar h1 {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar p {
+            margin-bottom: 15px;
+        }
+        
+        /* Main content - scrollable */
+        .content {
+            width: 100%;
+            max-width: 800px;
+            padding: 100px;
+            min-height: 100vh;
+            margin-left: 30%;
+            margin-right: 10%;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #4b4a4a;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            margin-top: 25px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #4686cf;
             text-decoration: none;
         }
-        .custom-shadow {
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2),
-                        0 10px 15px rgba(0, 0, 0, 0.12);
-        }
-        #resumeview {
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-            visibility: hidden;
-            animation: none;
-        }
-        #resumeview.opacity-100 {
-            opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
-        }
-
-        #resumeview.opacity-0 {
-            opacity: 0;
-            transform: translateY(-20px);
-            visibility: hidden;
-        }
-
-    </style>
-</head>
-<body class="p-3 flex flex-col bg-slate-50 min-h-screen justify-center items-center"></body>
-    <iframe
-        src="index_bg.html"
-        class="fixed inset-0 w-full h-full -z-10 object-cover"
-        frameborder="0"
-    ></iframe>
-    
-    <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-8 p-4">
-        <nav class="md:hidden w-full">
-            <div id="nav_menu" class="flex justify-center gap-8 w-full">
-                <a href="#" class="linkedin" onclick="window.location.href='https://www.linkedin.com/in/shivang-dixit-4471b2326/'">
-                    <i class="fa-brands fa-linkedin fa-xl"></i>
-                </a>
-                <a href="#" class="github" onclick="window.location.href='https://github.com/Shiv2576'">
-                    <i class="fa-brands fa-github fa-xl"></i>
-                </a>
-                <a href="#" class="telegram" onclick="window.location.href='https://t.me'">
-                    <i class="fa-brands fa-telegram fa-xl"></i>
-                </a>
-                <a href="#" class="leetcode" onclick="window.location.href='https://leetcode.com/u/dixitshiva12358/'">
-                    <i class="fa-solid fa-code fa-xl"></i>
-                </a>
-            </div>
-        </nav>
-
-        <div class="custom-card bg-white custom-shadow rounded-2xl p-6 flex flex-col items-center w-[500px] h-[400px] md:w-[250px] md:h-[650px]">
-            <div class="circle-frame mb-4">
-                <img
-                    src="profile.jpeg" 
-                    class="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover border-4 border-white shadow-lg"
-                />
-            </div>
-
-            <div class="text-center mb-6">
-                <p class="text-2xl font-extrabold text-black">Shivang Dixit</p>
-                <p class="text-sm font-serif text-black">Rust Developer(Web3)</p>
-                <p class="text-xs font-serif text-black">Undergrad</p>
-                <p class="text-xs font-serif text-black">
-                    <i class="fa-solid fa-location-dot fa-lg" style="color: #ff0000;"></i> India
-                </p>
-                <p class="mt-2 text-xs font-serif text-gray-700">Empowering a safer internet,</p>
-                <p class="text-xs font-serif text-gray-700">one secure line of Rust at a time.</p>
-            </div>
-
-            <nav class="hidden md:flex flex-col gap-4 w-full">
-                <button onclick="window.location.href='https://www.linkedin.com/in/shivang-dixit-4471b2326/'" class="linkedin flex items-center justify-center gap-2 bg-blue-400 text-white py-2 rounded-full">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                </button>
-                <button onclick="window.location.href='https://github.com/Shiv2576'" class="github flex items-center justify-center gap-2 bg-gray-800 text-white py-2 rounded-full">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </button>
-                <button onclick="window.location.href='https://telegram.org/'" class="telegram flex items-center justify-center gap-2 bg-blue-400 text-white py-2 rounded-full">
-                    <i class="fa-brands fa-telegram"></i> Telegram
-                </button>
-                <button onclick="window.location.href='https://leetcode.com/u/dixitshiva12358/'" class="leetcode flex items-center justify-center gap-2 bg-yellow-300 text-black py-2 rounded-full">
-                    <i class="fa-solid fa-code fa-l"></i> Leetcode
-                </button>                                      
-            </nav>
-        </div>
-
-        <div class="w-full md:w-2/3 lg:w-3/4 bg-white custom-shadow rounded-2xl p-6 space-y-6">
-            <div id="Languages_sub">
-                <p class="text-xl font-sans text-black text-center mb-4">Languages</p>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Rust</span>
-                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Python</span>
-                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">Solidity</span>
-                    <span class="px-3 py-1 bg-orange-400 text-white rounded-full text-s shadow-lg">GO</span>
-                </div>
-            </div>
-
-            <div id="Frameworks_sub">
-                <p class="text-xl font-sans text-black text-center mb-4">Frameworks</p>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Leptos</span>
-                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Ink!</span>
-                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Rocket</span>
-                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Pytorch</span>
-                    <span class="px-3 py-1 bg-green-400 text-white rounded-full text-s shadow-lg">Tokio</span>
-                </div>
-            </div>
-
-            <div id="Databases_sub">
-                <p class="text-xl font-sans text-black text-center mb-4">Databases</p>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">Postgres</span>
-                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">SQL</span>
-                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">MongoDB</span>
-                    <span class="px-3 py-1 bg-violet-400 text-white rounded-full text-s shadow-lg">ChromaDB</span>
-                </div>
-            </div>
-
-            <div id="Tools_sub">
-                <p class="text-xl font-sans text-black text-center mb-4">Tools</p>
-                <div class="flex flex-wrap justify-center gap-2">
-                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Kafka</span>
-                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Docker</span>
-                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">Git</span>
-                    <span class="px-3 py-1 bg-yellow-400 text-white rounded-full text-s shadow-lg">AWS</span>
-                </div>
-            </div>
-            <div class="flex flex-row justify-center items-center space-x-4 w-full">
-<!--            <button id="resumebutton"
-                    type="submit"
-                    class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-rose-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
-                    >
-                    Resume
-                    <svg
-                        class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
-                        viewBox="0 0 16 19"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                            class="fill-gray-800 group-hover:fill-gray-800"
-                        ></path>
-                    </svg>
-                </button>
- -->
-<!-- 
-                <div id="resumeview" class="hidden fixed inset-0 z-50 bg-black items-center justify-center">
-                    <div class="w-full h-full max-w-full max-h-full ">
-                        <iframe 
-                            src="Resume_01.pdf"
-                            class="w-full h-full border-none"
-                            frameborder="0">
-                        </iframe>
-                        <button id="backToFirstViewBtn" class="absolute top-4 left-7 px-16 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
-                            Back
-                        </button>
-                    </div>
-                </div> -->
-
-
-                <button id="projectButton" 
-                        type="submit"
-                        class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold   isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-15 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
-                    Projects
-                    <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zm0 12L2 9l10 5 10-5v7l-10 5-10-5v-7z" class="fill-gray-800 group-hover:fill-gray-800"/>
-                    </svg>
-                </button>
-
-                
-
-                <div id="projectview" class="hidden">
-                    <button id="return_button" class="mt-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
-                        Back
-                    </button>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                        <!-- Project 1 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="Portfolio Website" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">Portfolio Website</h3>
-                            <p class="text-gray-600 mt-2">A personal portfolio website showcasing projects and skills.</p>
-                        </div>
-                
-                        <!-- Project 2 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="E-commerce Platform" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">E-commerce Platform</h3>
-                            <p class="text-gray-600 mt-2">A web app for buying and selling products online.</p>
-                        </div>
-                
-                        <!-- Project 3 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
-                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
-                        </div>
-
-                        <!-- Project 4 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
-                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
-                        </div>
-
-                        <!-- Project 5 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
-                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
-                        </div>
-
-                        <!-- Project 6 -->
-                        <div class="p-4 bg-white shadow rounded">
-                            <div class="h-48 w-full overflow-hidden rounded bg-gray-100">
-                                <img src="https://via.placeholder.com/300" alt="Blockchain Explorer" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-lg font-bold mt-4">Blockchain Explorer</h3>
-                            <p class="text-gray-600 mt-2">A tool for viewing blockchain transactions and blocks.</p>
-                        </div>
-                    </div>
-                </div>
-                
-
-
-                <button id="ExperienceButton" 
-                        type="submit"
-                        class="flex justify-center gap-3 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-teal-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
-                    Experience
-                    <svg class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 3h7v7H3V3zM14 3h7v7h-7V3zM3 14h7v7H3v-7zM14 14h7v7h-7v-7z" class="fill-gray-800 group-hover:fill-gray-800"/>
-                    </svg>
-                </button>
-
-
-
-
-
-
-                <div id="experienceview" class="hidden">
-                    <button id="returntoexperience" class="mt-4 px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-opacity">
-                        Back
-                    </button>
-                </div>
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-    <script>
-
-        const Languages_sub = document.getElementById('Languages_sub');
-        const Frameworks_sub = document.getElementById('Frameworks_sub');
-        const Databases_sub = document.getElementById('Databases_sub');
-        const Tools_sub = document.getElementById('Tools_sub');
-        const projectButton = document.getElementById('projectButton');
-        const ExperienceButton = document.getElementById('ExperienceButton');
-        const backToFirstViewBtn = document.getElementById('backToFirstViewBtn');
-        const projectview = document.getElementById('projectview');
-        const return_button = document.getElementById('return_button');
-        const experienceview = document.getElementById('experienceview');
-        const returntoexperience = document.getElementById('returntoexperience');
-
         
-
-
-
-        function showProjecView() {
-            Languages_sub.classList.add('hidden');
-            Frameworks_sub.classList.add('hidden');
-            Databases_sub.classList.add('hidden');
-            Tools_sub.classList.add('hidden');
-            projectButton.classList.add('hidden');
-            ExperienceButton.classList.add('hidden');
-            projectview.classList.remove('hidden');
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 400%;
+                height: 50%;
+                position: relative;
+                transform: none;
+                left: 35%;
+                padding: 20px;
+                max-width: 50%;
+            }
+            
+            .content {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            fill: #333;
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease, fill 0.5s ease;
+        }
+        
+        .github-icon:hover {
+            fill: #4686cf;
+            transform: scale(1.4);
+        }
+        
+        .twitter-icon:hover {
+            fill: #4686cf;
+            transform: scale(1.4);
         }
 
-        function showProjectbutton() {
-            Languages_sub.classList.remove('hidden');
-            Frameworks_sub.classList.remove('hidden');
-            Databases_sub.classList.remove('hidden');
-            Tools_sub.classList.remove('hidden');
-            projectButton.classList.remove('hidden');
-            ExperienceButton.classList.remove('hidden');
-            projectview.classList.add('hidden');
+        .sun-icon {
+            transform: translateY(5px);
+            width: 25px;             /* Customize size */
+            height: 25px;
+            border: 4px solid rgb(60, 58, 58); /* Customize color */
+            border-radius: 50%;
+            box-sizing: border-box;
+            background-color: transparent;
+            display: inline-block;
         }
-
-        projectButton.addEventListener('click', showProjecView)
-        return_button.addEventListener('click', showProjectbutton)
-
-
-        function showexperienceview() {
-            Languages_sub.classList.add('hidden');
-            Frameworks_sub.classList.add('hidden');
-            Databases_sub.classList.add('hidden');
-            Tools_sub.classList.add('hidden');
-            projectButton.classList.add('hidden');
-            ExperienceButton.classList.add('hidden');
-            experienceview.classList.remove('hidden');
+        
+        .moon-icon {
+            display: none;
+            color: white;
+         
+        }
+        
+        body.dark-mode .sun-icon {
+            display: none;
+          
+        }
+        
+        body.dark-mode .moon-icon {
+            display: block;
             
         }
 
 
-        function showExperiencebutton() {
-            Languages_sub.classList.remove('hidden');
-            Frameworks_sub.classList.remove('hidden');
-            Databases_sub.classList.remove('hidden');
-            Tools_sub.classList.remove('hidden');
-            projectButton.classList.remove('hidden');
-            ExperienceButton.classList.remove('hidden');
-            experienceview.classList.add('hidden');
-        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+        <span class="sun-icon"></span>
+        <span class="moon-icon">◉</span>
+    </button>
 
-        ExperienceButton.addEventListener('click', showexperienceview);
-        returntoexperience.addEventListener('click', showExperiencebutton);
+    <div class="sidebar">
+        <h1><a href="">Shivang Dixit</a></h1>
+        <p>Bio</p>
+        <div class="social-links">
+            <a href="https://github.com/Shiv2576" title="View My GitHub Profile">
+              <svg class="social-icon github-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            
+            <a href="https://twitter.com/Shiv_dixit2576" title="Follow me on X (Twitter)">
+              <svg class="social-icon twitter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1 id="shivang-dixit--full-stack-engineer">About me !</h1>
+
+        <p>Not a frontend specialist, but I can efficiently build full-stack projects by breaking tasks into clear, functional units—especially with AI support. Having a frontend designer in the team is a bonus.</p>
+
+        <h2 id="technical-skills">Technical Skills</h2>
+        <ul>
+            <li><strong>Languages:</strong> Rust, GO, Solidity</li>
+
+            <li><strong>Chains:</strong> EVM, CosmWasm (Learning), SVM (Learning)</li>
+
+            <li><strong>Oracles:</strong> ChainLink (with certification) </li>
+
+            <li><strong>L2 - Rollups:</strong> ZK-sync, Optimism </li>
+
+            <li><strong>Databases:</strong> PostgreSQL, RocksDB</li>
+
+            <li><strong>Specialties:</strong> Distributed systems, High-Performance Computing, CryptoGraphy, Smart-Contracts</li>
+
+            <li><strong>Tools:</strong> Docker, Tenderly </li>
+
+            <li><strong>Frameworks:</strong> Tokio, Openzeppelin , Uniswap </li>
+
+            <li><strong>Version Control:</strong> Git, GitHub</li>
+
+            <li><strong>CI/CD:</strong> Jenkins </li>
+
+            <li><strong>E2E:</strong> Foundry, Cyprus, Playwright, HardHat, Alchemy, Truffle </li>
+            
+        </ul>
+
+        <h2 id="projects">Projects</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/Shiv2576/VRF_TileGame" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">
+                  BlockReveal
+                </a>:  
+                <ul class="ml-4 list-disc">
+                  <li>Frontend: Next.js, Tailwind CSS, Wagmi, RainbowKit</li>
+                  <li>Chainlink VRF for randomness</li>
+                  <li>Integrating Chainlink Upkeep</li>
+                  <li>
+                    Upgraded contracts: 
+                    <a href="https://github.com/Shiv2576/TileGame_upgrade" target="_blank" rel="noopener noreferrer" class="underline">
+                      TileGame_upgrade
+                    </a>
+                  </li>
+                  <li>Features: Auto storage cleanup, support for concurrent players</li>
+                  <li>Challenge: High LINK token cost per round </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="https://github.com/Shiv2576/Staking_Contract" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">
+                  RestakingEth_Contract
+                </a>:  
+                <ul class="ml-4 list-disc">
+                  <li>Simple implementation of a restaking protocol</li>
+                  <li>Supports multiplier-based rewards</li>
+                  <li>Includes user liquidation mechanism</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="https://airdroptoken.netlify.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">
+                  TeleGram_Bot
+                </a>:
+                <ul class="ml-4 list-disc">
+                  <li>Event-driven trading bot integrated with Telegram</li>
+                  <li>Monitors whale transactions from mempool.space in real-time</li>
+                  <li>Predicts ETH & SOL price impact</li>
+                  <li>Signals potential long/short opportunities</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="https://airdroptoken.netlify.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">
+                  AirDropToken
+                </a>:
+                <ul class="ml-4 list-disc">
+                  <li>Simple multi-address token distribution (airdrop) app</li>
+                  <li>Built with Next.js, Tailwind CSS, Wagmi, and RainbowKit</li>
+                  <li>Tested end-to-end using Cypress, Playwright, and Vitest</li>
+                </ul>
+            </li>
+              
+              
+
+            <li>
+                <a href="https://extoken.netlify.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline">
+                  Swap-Token
+                </a>:
+                <ul class="ml-4 list-disc">
+                  <li>Simple token swap application with affiliate fee structure</li>
+                  <li>Built using Next.js, Tailwind CSS, Wagmi, and RainbowKit</li>
+                </ul>
+            </li>
+
+
+            <li>
+                Currently exploring MEV (Maximal Extractable Value) — learning how on-chain order flow, arbitrage, and block structuring impact DeFi trading.
+            </li>
+              
+        </ul>
         
 
+        
+
+        <footer>
+            <p><small>Hosted on GitHub Pages — Theme by <a href="" >orderedlist</a></small></p>
+        </footer>
+    </div>
+    <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        
+        // Check for saved dark mode preference or system preference
+        const savedDarkMode = localStorage.getItem('darkMode');
+        const systemPrefersDarkMode = window.matchMedia('(prefers-color-scheme: )').matches;
+        
+        if (savedDarkMode === 'enabled' || (!savedDarkMode && systemPrefersDarkMode)) {
+            document.body.classList.add('dark-mode');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.removeItem('darkMode');
+            }
+        });
+        
+        // Listen for system dark mode changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (e.matches) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.removeItem('darkMode');
+            }
+        });
     </script>
 </body>
 </html>
